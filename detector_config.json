@@ -1,0 +1,44 @@
+
+{
+  "model": {
+    "type": "yamnet_tflite",
+    "name": "YAMNet TFLite 2-Stage Classifier",
+    "path": "models/yamnet_12class_compatible.tflite",
+    "labels": "models/class_labels.txt",
+    "sample_rate": 16000
+  },
+  "species": {
+    "targets": "config/species_targets.json",
+    "confidence_threshold": 0.70,
+    "clip_duration_seconds": 10.0
+  },
+
+  "paths": {
+    "recordings": "/home/xilinx/wildlife_detector/recordings",
+    "clips": "/home/xilinx/wildlife_detector/detections/clips",
+    "logs": "/home/xilinx/wildlife_detector/logs",
+    "models": "/home/xilinx/wildlife_detector/models"
+  },
+
+  "storage": {
+    "delete_originals_after_processing": true,
+    "keep_originals_if_no_detection": false,
+    "min_free_gb": 0.5,
+    "warn_free_gb": 5.0,
+    "max_clips": 10000
+  },
+
+  "processing": {
+    "scan_existing_on_startup": false,
+    "processing_timeout_seconds": 300,
+    "max_concurrent_files": 1
+  },
+
+  "logging": {
+    "level": "INFO",
+    "json_log": "logs/detections.json",
+    "csv_log": "logs/detections.csv",
+    "summary_log": "logs/daily_summary.txt",
+    "system_log": "logs/system.log"
+  }
+}
